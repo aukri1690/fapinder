@@ -1,19 +1,8 @@
-import SwipeDeck, { type Item } from "../components/SwipeDeck";
+import AgeGate from "../components/AgeGate";
 
-async function getItems(): Promise<Item[]> {
-  const res = await fetch(`${process.env.GO_API_URL}/api/item`, {
-    cache: "no-store",
-  });
 
-  if (!res.ok) {
-    throw new Error("failed to fetch items");
-  }
+const Home = () => {
+  return <AgeGate />;
+};
 
-  return res.json();
-}
-
-export default async function Home() {
-  const items = await getItems();
-
-  return <SwipeDeck items={items} />;
-}
+export default Home;
